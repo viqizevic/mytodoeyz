@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:my_todoeyz/screens/add_task_screen.dart';
 import 'package:my_todoeyz/widgets/tasks_list.dart';
 import 'package:my_todoeyz/models/task.dart';
@@ -9,15 +10,10 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  List<Task> tasks = [
-    Task(name: 'Buy apples'),
-    Task(name: 'Buy bananas'),
-    Task(name: 'Buy cherries'),
-    Task(name: 'Buy donuts'),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List<Task> tasks = Provider.of<List<Task>>(context);
+
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
@@ -64,7 +60,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '7 Tasks',
+                  '${tasks.length} Tasks',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -82,9 +78,7 @@ class _TasksScreenState extends State<TasksScreen> {
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
                   )),
-              child: TasksList(
-                tasks: tasks,
-              ),
+              child: TasksList(),
             ),
           )
         ],

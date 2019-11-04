@@ -12,7 +12,7 @@ class AddTaskScreen extends StatelessWidget {
       return;
     }
     addNewTask(enteredTask);
-    Navigator.of(context).pop();
+    Navigator.pop(context);
   }
 
   @override
