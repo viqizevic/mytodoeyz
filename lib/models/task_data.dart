@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'task.dart';
 
 class TaskData extends ChangeNotifier {
@@ -12,6 +12,11 @@ class TaskData extends ChangeNotifier {
 
   void addNewTask(String newTask) {
     tasks.add(Task(name: newTask));
+    notifyListeners();
+  }
+
+  void toggleDoneTask(int index) {
+    tasks[index].toggleDone();
     notifyListeners();
   }
 }
