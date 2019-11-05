@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:my_todoeyz/models/task_data.dart';
 import 'package:my_todoeyz/models/task.dart';
 import 'task_tile.dart';
 
@@ -11,7 +12,7 @@ class TasksList extends StatefulWidget {
 class _TasksListState extends State<TasksList> {
   @override
   Widget build(BuildContext context) {
-    List<Task> tasks = Provider.of<List<Task>>(context);
+    List<Task> tasks = Provider.of<TaskData>(context).tasks;
 
     return ListView.builder(
       itemBuilder: (context, index) {
