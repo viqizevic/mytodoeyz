@@ -10,6 +10,20 @@ class TaskData extends ChangeNotifier {
     Task(name: 'Buy eggs'),
   ];
 
+  int get taskCount {
+    return tasks.length;
+  }
+
+  int get tasksOpenCount {
+    int open = 0;
+    for (Task task in tasks) {
+      if (!task.isDone) {
+        open += 1;
+      }
+    }
+    return open;
+  }
+
   void addNewTask(String newTask) {
     tasks.add(Task(name: newTask));
     notifyListeners();

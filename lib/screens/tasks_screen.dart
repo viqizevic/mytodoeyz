@@ -52,7 +52,7 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '${taskData.tasks.length} Tasks',
+                  '${taskData.tasksOpenCount} Tasks',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
