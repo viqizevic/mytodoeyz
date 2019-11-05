@@ -6,15 +6,6 @@ class AddTaskScreen extends StatelessWidget {
 
   AddTaskScreen({this.addNewTask});
 
-  void _submitNewTask(BuildContext context) {
-    final enteredTask = inputTextController.text;
-    if (enteredTask.isEmpty) {
-      return;
-    }
-    addNewTask(enteredTask);
-    Navigator.pop(context);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,7 +46,11 @@ class AddTaskScreen extends StatelessWidget {
                 ),
                 color: Colors.lightBlueAccent,
                 onPressed: () {
-                  _submitNewTask(context);
+                  String enteredTask = inputTextController.text;
+                  if (enteredTask.isNotEmpty) {
+                    addNewTask(enteredTask);
+                    Navigator.pop(context);
+                  }
                 },
               ),
             ],
